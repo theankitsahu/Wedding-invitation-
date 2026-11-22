@@ -136,6 +136,11 @@ h2{font-size:29px;margin-bottom:4px}
 .sp{width:34px;height:34px;border:3px solid rgba(110,31,47,.2);border-top-color:var(--wine);border-radius:50%;margin:0 auto 8px;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 #tap{display:none;animation:pu 1.8s ease-in-out infinite}
+#tap small{display:block;font:500 12px Montserrat,sans-serif;letter-spacing:.06em;opacity:.85;margin-top:3px}
+.hand{display:block;font-size:26px;animation:hd 1.4s ease-in-out infinite}
+@keyframes hd{50%{transform:translateY(-8px)}}
+.book:not(.open) .cf{animation:gl 2s ease-in-out infinite}
+@keyframes gl{0%,100%{box-shadow:0 0 0 0 rgba(201,164,92,0),inset 7px 0 12px rgba(0,0,0,.3)}50%{box-shadow:0 0 28px 6px rgba(201,164,92,.65),inset 7px 0 12px rgba(0,0,0,.3)}}
 @keyframes pu{50%{opacity:.4}}
 </style></head><body class="">
 <div id="bg"></div>
@@ -210,7 +215,7 @@ h2{font-size:29px;margin-bottom:4px}
 
 <div id="intro">
  <div class="scene"><div class="zm" id="zm"><div class="book" id="bk"><div class="pg"></div><div class="cov" id="cv"><div class="cf"><img id="gs0" alt=""><span>Wedding Invitation</span></div><div class="cb"></div></div></div></div></div>
- <div id="msg"><div class="sp" id="ld"></div><div id="tap">Tap the book to open</div></div>
+ <div id="msg"><div class="sp" id="ld"></div><div id="tap"><span class="hand">👆</span><div>You’re invited, with love</div><small>Please tap the book to open</small></div></div>
 </div>
 <button id="mus" aria-label="Music">♪</button>
 <div id="toast"></div>
