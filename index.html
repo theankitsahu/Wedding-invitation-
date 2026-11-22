@@ -109,6 +109,7 @@ h2{font-size:29px;margin-bottom:4px}
 .end h2{font:italic 400 27px/1.3 "Playfair Display",serif;padding:0 36px}
 #toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--wine);color:#f6e3b0;padding:9px 18px;border-radius:99px;opacity:0;transition:.4s;z-index:200;font-size:13px}
 #toast.on{opacity:1;transform:translate(-50%,0)}
+#mus.pu{animation:pu 1s ease-in-out infinite}
 #mus{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;width:40px;height:40px;border-radius:50%;border:1px solid var(--gold);background:var(--wine);color:#f6e3b0;font-size:16px;display:none}
 #fx{position:fixed;inset:0;z-index:150;pointer-events:none}
 /* intro */
@@ -131,7 +132,18 @@ h2{font-size:29px;margin-bottom:4px}
 .cf:before{content:"";position:absolute;inset:10px;border:2px solid var(--gold);border-radius:3px;box-shadow:inset 0 0 0 4px var(--wine),inset 0 0 0 5px rgba(201,164,92,.7)}
 .cf img{width:56%}
 .cf span{font:italic 400 14px "Playfair Display",serif;color:#e9cf8f}
+.cf .cs{font:500 10.5px Montserrat,sans-serif;letter-spacing:.06em;color:#f1dba0;text-align:center;padding:0 22px;line-height:1.5}
+.cf .cc{position:absolute;bottom:21px;left:0;right:0;text-align:center;font:italic 400 10.5px "Playfair Display",serif;color:#c9a45c}
 .cb{background:var(--iv);transform:rotateY(180deg)}
+.icr{position:absolute;bottom:calc(4% + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;z-index:4;font:italic 400 13px "Playfair Display",Georgia,serif;color:var(--gd)}
+.cred{margin:34px auto 0;width:min(72vw,270px)}
+.cred span{display:block;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:10px 0}
+.cred p{font-size:11px;letter-spacing:.08em;opacity:.8}
+.cred b{font-size:22px;font-style:italic;font-weight:400;color:var(--gd)}
+.ict{position:absolute;top:calc(7% + env(safe-area-inset-top,0px));left:0;right:0;text-align:center;z-index:4;line-height:1.3}
+.ict small{display:block;font:500 11px Montserrat,sans-serif;letter-spacing:.08em;color:var(--wine);opacity:.8}
+.ict b{display:block;font:italic 400 24px "Playfair Display",Georgia,serif;color:var(--gd);margin-top:2px}
+.ict i{display:block;width:90px;height:1px;margin:8px auto 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 #msg{position:absolute;bottom:13%;left:0;right:0;text-align:center;z-index:4;font:italic 400 18px "Playfair Display",serif}
 .sp{width:34px;height:34px;border:3px solid rgba(110,31,47,.2);border-top-color:var(--wine);border-radius:50%;margin:0 auto 8px;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -210,12 +222,13 @@ h2{font-size:29px;margin-bottom:4px}
  <img class="gs bi" id="gs2" alt="">
  <h2 class="bi">We can’t wait to celebrate with you</h2>
  <p class="pf bi" style="font-style:italic;margin-top:12px;font-size:18px">With love, the Sahu families</p>
+ <div class="cred bi"><span></span><p>Invitation designed &amp; created by</p><b class="pf">Ankit Sahu</b><span></span></div>
 </section>
 </main>
 
 <div id="intro">
- <div class="scene"><div class="zm" id="zm"><div class="book" id="bk"><div class="pg"></div><div class="cov" id="cv"><div class="cf"><img id="gs0" alt=""><span>Wedding Invitation</span></div><div class="cb"></div></div></div></div></div>
- <div id="msg"><div class="sp" id="ld"></div><div id="tap"><span class="hand">👆</span><div>You’re invited, with love</div><small>Please tap the book to open</small></div></div>
+ <div class="scene"><div class="zm" id="zm"><div class="book" id="bk"><div class="pg"></div><div class="cov" id="cv"><div class="cf"><img id="gs0" alt=""><span>Wedding Invitation</span><span class="cs">Invitation from Sahu Parivar</span><span class="cc">Created by Ankit Sahu</span></div><div class="cb"></div></div></div></div></div>
+ <div class="ict"><small>Invitation created by</small><b>Ankit Sahu</b><i></i></div><div class="icr">Invitation created by Ankit Sahu</div><div id="msg"><div class="sp" id="ld"></div><div id="tap"><span class="hand">👆</span><div>You’re invited, with love</div><small>Please tap the book to open</small></div></div>
 </div>
 <button id="mus" aria-label="Music">♪</button>
 <div id="toast"></div>
@@ -318,7 +331,13 @@ function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');setT
 $('#cp').onclick=async()=>{try{await navigator.clipboard.writeText(ADDR)}catch(e){const a=document.createElement('textarea');a.value=ADDR;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(_){}a.remove()}toast('Address copied')};
 /* intro */
 let aud=null;
-if(MUSIC){aud=new Audio(MUSIC);aud.loop=true;aud.volume=0;aud.preload='auto'}
+let want=0,manual=0;
+if(MUSIC){try{const bs=atob(MUSIC.split(',')[1]),u=new Uint8Array(bs.length);for(let i=0;i<bs.length;i++)u[i]=bs.charCodeAt(i);aud=new Audio(URL.createObjectURL(new Blob([u],{type:'audio/mpeg'})))}catch(e){aud=new Audio(MUSIC)}aud.loop=true;aud.preload='auto';aud.setAttribute('playsinline','');aud.load();
+ aud.addEventListener('play',()=>$('#mus').textContent='🔊');aud.addEventListener('pause',()=>$('#mus').textContent='🔇');
+ ['touchend','pointerup','click'].forEach(ev=>addEventListener(ev,()=>{if(want&&!manual&&aud.paused){const q=aud.play();q&&q.catch&&q.catch(()=>{})}},{passive:true}))}
+function startMusic(){if(!aud)return;want=1;const m=$('#mus');m.style.display='block';m.onclick=()=>{if(aud.paused){manual=0;aud.volume=.7;const q=aud.play();q&&q.catch&&q.catch(()=>{})}else{manual=1;aud.pause()}};
+ try{aud.volume=0}catch(e){}const q=aud.play();q&&q.catch&&q.catch(()=>{});let v=0;const f=setInterval(()=>{v=Math.min(.7,v+.05);try{aud.volume=v}catch(e){}if(v>=.7)clearInterval(f)},150);
+ setTimeout(()=>{if(aud.paused&&!manual){toast('Tap 🔇 to play music');m.classList.add('pu')}},1800)}
 const ready=src=>new Promise(r=>{if(src.complete&&src.naturalWidth)return r();src.addEventListener('load',r,{once:true});src.addEventListener('error',r,{once:true})});
 (async()=>{build();
  const fonts=Promise.race([Promise.all(['400 20px "Playfair Display"','italic 400 20px "Playfair Display"','400 14px Montserrat','500 14px Montserrat'].map(f=>document.fonts.load(f))),sleep(2000)]);
@@ -328,7 +347,7 @@ const ready=src=>new Promise(r=>{if(src.complete&&src.naturalWidth)return r();sr
  const bk=$('#bk');let opened=0;
  bk.addEventListener('click',async()=>{if(opened)return;opened=1;$('#tap').style.display='none';
   $('#cv').classList.add('open');bk.classList.add('open');$('#zm').classList.add('o1');
-  if(aud){aud.play().catch(()=>{});let v=0;const f=setInterval(()=>{v=Math.min(.7,v+.04);aud.volume=v;if(v>=.7)clearInterval(f)},150);const m=$('#mus');m.style.display='block';m.onclick=()=>{aud.paused?aud.play():aud.pause()}}
+  startMusic();
   await sleep(900);petals();await sleep(700);
   $$('.ir').forEach(r=>{if(r.dataset.f=='1'){r.style.transform='scale(2.6)';r.style.opacity=0}});
   $('#zm').classList.add('o2');await sleep(1100);
