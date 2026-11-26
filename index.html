@@ -43,13 +43,14 @@ h2{font-size:29px;margin-bottom:4px}
 .arr svg{display:block;animation:ar 1.6s ease-in-out infinite}
 @keyframes ar{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(9px);opacity:1}}
 /* pull scroll */
-.pw{position:relative;width:min(84vw,330px);height:520px;margin:6px auto 0}
+.pw{position:relative;width:min(84vw,330px);height:655px;margin:6px auto 0}
 .rod{position:absolute;left:0;right:0;top:0;height:14px;border-radius:8px;background:linear-gradient(#f3e2b0,var(--gold) 50%,var(--gd));box-shadow:0 3px 6px rgba(80,40,0,.3);z-index:4}
 .rod:before,.rod:after{content:"";position:absolute;top:-4px;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f3e2b0,var(--gd))}
 .rod:before{left:-9px}.rod:after{right:-9px}
-.paper{position:absolute;left:5%;right:5%;top:22px;height:370px;clip-path:inset(0 0 100% 0);background:linear-gradient(#fffaf1,#f8ead8);box-shadow:0 8px 18px rgba(80,30,20,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;z-index:2}
+.paper{position:absolute;left:5%;right:5%;top:22px;height:505px;clip-path:inset(0 0 100% 0);background:linear-gradient(#fffaf1,#f8ead8);box-shadow:0 8px 18px rgba(80,30,20,.25);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;z-index:2}
 .paper:before{content:"";position:absolute;inset:9px;border:1.5px solid var(--gold);outline:1px solid rgba(201,164,92,.6);outline-offset:3px}
 .paper .gs{width:54px;margin-bottom:2px}
+.brt{margin-top:6px;display:block}.bob{animation:bob .7s ease-in-out infinite alternate}@keyframes bob{to{transform:translateY(-3px)}}
 .paper .big{font:400 76px/1 "Tiro Devanagari Hindi",serif;color:var(--wine)}
 .cr{position:absolute;width:76px}
 .roll{position:absolute;left:1%;right:1%;top:14px;height:26px;border-radius:13px;background:linear-gradient(#fff6e4,#e9d2a4 55%,#b99650);box-shadow:0 4px 8px rgba(60,30,0,.35);z-index:5;will-change:transform}
@@ -107,25 +108,28 @@ h2{font-size:29px;margin-bottom:4px}
 .end{padding-bottom:110px}
 .end .gs{width:78px;margin:0 auto 14px}
 .end h2{font:400 27px/1.3 "Tiro Devanagari Hindi",serif;padding:0 36px}
-#toast{position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--wine);color:#f6e3b0;padding:9px 18px;border-radius:99px;opacity:0;transition:.4s;z-index:200;font-size:13px}
+#toast{pointer-events:none;position:fixed;left:50%;bottom:calc(78px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--wine);color:#f6e3b0;padding:9px 18px;border-radius:99px;opacity:0;transition:.4s;z-index:200;font-size:13px}
 #toast.on{opacity:1;transform:translate(-50%,0)}
-#mus.pu{animation:pu 1s ease-in-out infinite}
-#mus{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;width:40px;height:40px;border-radius:50%;border:1px solid var(--gold);background:var(--wine);color:#f6e3b0;font-size:16px;display:none}
+#pb{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:3px;z-index:25;background:linear-gradient(90deg,#c9a45c,#b3203a);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
+#nx{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;align-items:center;gap:8px;padding:9px 18px;border-radius:99px;border:1px solid var(--gold);background:rgba(110,31,47,.94);color:#f6e3b0;font:500 13.5px Hind,sans-serif;cursor:pointer;box-shadow:0 6px 16px rgba(80,10,30,.35);transition:opacity .4s;white-space:nowrap}
+#nx.hd{opacity:0;pointer-events:none}
+#nx b{font-weight:400;animation:bn 1.2s ease-in-out infinite}
+@keyframes bn{50%{transform:translateY(4px)}}
 #fx{position:fixed;inset:0;z-index:150;pointer-events:none}
 /* intro */
-#intro{position:fixed;inset:0;z-index:100;background:linear-gradient(#fcefe9,#f4d6d3);overflow:hidden;transition:opacity .8s}
+#intro{position:fixed;inset:0;z-index:100;background:linear-gradient(#fcefe9,#f4d6d3);overflow:hidden;transition:opacity .5s}
 #intro.gone{opacity:0}
-.ir{position:absolute;transition:transform 1.5s ease-in,opacity 1.3s;pointer-events:none}
+.ir{position:absolute;transition:transform .9s ease-in,opacity .9s;pointer-events:none}
 .ir img{width:100%;animation:dr 6s ease-in-out infinite alternate}
 @keyframes dr{to{transform:translate(8px,-10px) rotate(5deg)}}
 .scene{position:absolute;inset:0;perspective:1100px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2}
-.zm{transition:transform 1.5s cubic-bezier(.6,0,.3,1);transform-style:preserve-3d}
+.zm{transition:transform .9s cubic-bezier(.6,0,.3,1);transform-style:preserve-3d}
 .zm.o1{transform:translateX(calc(min(58vw,250px)/2))}
 .zm.o2{transform:translateX(calc(min(58vw,250px)/2)) scale(3.6)}
-.book{position:relative;width:min(58vw,250px);aspect-ratio:3/4;transform-style:preserve-3d;transform:rotateY(-22deg) rotateX(7deg);transition:transform 1.4s ease;cursor:pointer}
+.book{position:relative;width:min(58vw,250px);aspect-ratio:3/4;transform-style:preserve-3d;transform:rotateY(-22deg) rotateX(7deg);transition:transform .8s ease;cursor:pointer}
 .book.open{transform:rotateY(0) rotateX(0)}
 .pg{position:absolute;inset:0;background:var(--iv);border-radius:3px 8px 8px 3px;box-shadow:0 24px 40px rgba(110,31,47,.38)}
-.cov{position:absolute;inset:0;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.5s cubic-bezier(.5,0,.2,1)}
+.cov{position:absolute;inset:0;transform-origin:left center;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.5,0,.2,1)}
 .cov.open{transform:rotateY(-168deg)}
 .cf,.cb{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:3px 8px 8px 3px}
 .cf{background:radial-gradient(120% 90% at 30% 15%,#a03850,var(--wine) 55%,#45101d);box-shadow:inset 7px 0 12px rgba(0,0,0,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
@@ -173,7 +177,7 @@ h2{font-size:29px;margin-bottom:4px}
 </section>
 
 <section class="sec" id="sd">
- <p class="sm bi">डोरी खींचकर खोलें</p>
+ <p class="sm bi">आपके लिए शुभ बारात का निमंत्रण</p>
  <div class="pw" id="pw">
   <div class="rod"></div>
   <div class="paper" id="paper">
@@ -182,11 +186,11 @@ h2{font-size:29px;margin-bottom:4px}
    <div class="sm" style="margin-top:6px">गुरुवार</div>
    <div class="big">10</div>
    <div class="pf" style="font-size:23px">दिसंबर 2026</div>
-   <div class="sm" style="margin-top:6px">फेरे रात 7:00 बजे से</div>
+   <svg class="brt" viewBox="0 0 260 86" width="236" aria-hidden="true"><path d="M2 8Q130 24 258 8" fill="none" stroke="#c9a45c" stroke-width="1.5"/><g fill="#f59a14"><circle cx="20" cy="12" r="3.4"/><circle cx="52" cy="17" r="3.4"/><circle cx="86" cy="20" r="3.4"/><circle cx="130" cy="21" r="3.4"/><circle cx="174" cy="20" r="3.4"/><circle cx="208" cy="17" r="3.4"/><circle cx="240" cy="12" r="3.4"/></g><path d="M6 80H254" stroke="#c9a45c" stroke-width="1.2" stroke-dasharray="3 4"/><g><rect x="30" y="44" width="12" height="22" rx="4" fill="#6e1f2f"/><circle cx="36" cy="38" r="5.5" fill="#e2b48c"/><path d="M30 36q6-10 12 0z" fill="#d9a441"/><ellipse cx="36" cy="58" rx="11" ry="6.5" fill="#c9a45c" stroke="#6e1f2f"/><path d="M31 66v14M41 66v14" stroke="#6e1f2f" stroke-width="3"/><path d="M46 46l8-8M25 46l-6-7" stroke="#8a5a1c" stroke-width="2"/></g><g class="bob"><ellipse cx="116" cy="54" rx="31" ry="14" fill="#f6ead3" stroke="#c9a45c"/><path d="M137 48l9-22 12 4-5 20z" fill="#f6ead3" stroke="#c9a45c"/><ellipse cx="156" cy="28" rx="10" ry="6" transform="rotate(25 156 28)" fill="#f6ead3" stroke="#c9a45c"/><path d="M142 26l-2-9 5 6z" fill="#f6ead3"/><path d="M90 50q-16 4-11 26" fill="none" stroke="#c9a45c" stroke-width="4" stroke-linecap="round"/><path d="M94 63l-2 17M104 66l1 14M130 66l3 14M139 63l6 13" stroke="#e6d3ae" stroke-width="5" stroke-linecap="round"/><path d="M96 44h40v13H96z" fill="#8a1f35" stroke="#c9a45c"/><rect x="109" y="24" width="14" height="22" rx="5" fill="#b3203a"/><circle cx="116" cy="18" r="6.5" fill="#e2b48c"/><path d="M108 17q8-13 16 0z" fill="#d9a441"/><path d="M110 19v9M113 19v10M116 19v10M119 19v10M122 19v9" stroke="#f3e2b0" stroke-width="1"/></g><g><rect x="196" y="44" width="12" height="22" rx="4" fill="#2f7a4b"/><circle cx="202" cy="38" r="5.5" fill="#e2b48c"/><path d="M196 36q6-10 12 0z" fill="#b3203a"/><path d="M198 66v14M206 66v14" stroke="#2f7a4b" stroke-width="3"/><path d="M208 48l14-30" stroke="#8a5a1c" stroke-width="1.6"/><path d="M222 18l16 5-16 6z" fill="#e8a317"/></g><text x="168" y="14" font-size="11" fill="#d9a441">✦</text><text x="236" y="40" font-size="9" fill="#d9a441">✦</text></svg><div class="pf" style="font-size:21px;color:var(--gd);margin-top:2px">शुभ बारात</div><div class="sm" style="line-height:1.5">आकाश गार्डन से द स्काई लैंड गार्डन तक<br>फेरे रात 7:00 बजे से</div>
    <img class="cr r0" alt=""><img class="cr r1" alt=""><img class="cr r2" alt=""><img class="cr r3" alt="">
   </div>
   <div class="roll" id="roll"><div class="tas" id="tas"><i></i><b></b><u></u></div></div>
-  <div class="fing" id="fing">👆<small>खींचें</small></div>
+  <div class="fing" id="fing" style="display:none">👆<small>खींचें</small></div>
  </div>
  <p class="cdn bi" id="cdn">&nbsp;</p>
  <a class="btn bi" id="cal" target="_blank" rel="noopener" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%E0%A4%9C%E0%A4%BF%E0%A4%A4%E0%A5%87%E0%A4%82%E0%A4%A6%E0%A5%8D%E0%A4%B0+%26+%E0%A4%B0%E0%A4%BF%E0%A4%82%E0%A4%95%E0%A5%80+%E0%A4%95%E0%A4%BE+%E0%A4%B5%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B9&dates=20261210T133000Z%2F20261210T170000Z&location=%E0%A4%A6+%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%BE%E0%A4%88+%E0%A4%B2%E0%A5%88%E0%A4%82%E0%A4%A1+%E0%A4%97%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%A1%E0%A4%A8%2C+%E0%A4%86%E0%A4%95%E0%A4%BE%E0%A4%B6+%E0%A4%97%E0%A4%BE%E0%A4%B0%E0%A5%8D%E0%A4%A1%E0%A4%A8+%E0%A4%95%E0%A5%87+%E0%A4%AA%E0%A4%BE%E0%A4%B8%2C+%E0%A4%AC%E0%A5%88%E0%A4%B0%E0%A4%BE%E0%A4%97%E0%A4%A2%E0%A4%BC%2C+%E0%A4%AD%E0%A5%8B%E0%A4%AA%E0%A4%BE%E0%A4%B2&details=%E0%A4%AB%E0%A5%87%E0%A4%B0%E0%A5%87+%E0%A4%B0%E0%A4%BE%E0%A4%A4+7%3A00+%E0%A4%AC%E0%A4%9C%E0%A5%87+%E0%A4%B8%E0%A5%87%E0%A5%A4+%E0%A4%B8%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A5%87%E0%A4%AE%2C+%E0%A4%B8%E0%A4%BE%E0%A4%B9%E0%A5%82+%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0">कैलेंडर में जोड़ें</a>
@@ -229,9 +233,9 @@ h2{font-size:29px;margin-bottom:4px}
 
 <div id="intro">
  <div class="scene"><div class="zm" id="zm"><div class="book" id="bk"><div class="pg"></div><div class="cov" id="cv"><div class="cf"><img id="gs0" alt=""><span>विवाह निमंत्रण</span><span class="cs">साहू परिवार की ओर से निमंत्रण</span></div><div class="cb"></div></div></div></div></div>
- <div class="ict"><small>Invitation created by</small><b>Ankit Sahu</b><i></i></div><div class="icr">Invitation created by Ankit Sahu</div><div id="msg"><div class="sp" id="ld"></div><div id="tap"><span class="hand">👆</span><div>आपके लिए एक ख़ास निमंत्रण</div><small>कृपया किताब पर टैप करके खोलें</small></div></div>
+ <div class="ict"><small>Invitation created by</small><b>Ankit Sahu</b><i></i></div><div class="icr">Invitation created by Ankit Sahu</div><div id="msg"><div class="sp" id="ld"></div><div id="tap"><div>आपके लिए एक ख़ास निमंत्रण</div><small>निमंत्रण खुल रहा है…</small></div></div>
 </div>
-<button id="mus" aria-label="संगीत">♪</button>
+<div id="pb"></div><button id="nx" style="display:none"><span>शुभ तिथि देखिए</span><b>↓</b></button>
 <div id="toast"></div>
 
 <script>
@@ -266,7 +270,7 @@ const fit=()=>{fx.width=innerWidth;fx.height=innerHeight};fit();addEventListener
 function loop(){fc.clearRect(0,0,fx.width,fx.height);P=P.filter(p=>p.y<fx.height+30&&p.t>0);for(const p of P){p.x+=p.vx+(p.c?0:Math.sin(p.t/25+p.a));p.y+=p.vy;p.vy+=p.g;p.a+=p.va;p.t--;fc.save();fc.translate(p.x,p.y);fc.rotate(p.a);fc.globalAlpha=Math.min(1,p.t/30);if(p.c){fc.fillStyle=p.c;fc.fillRect(-4,-2,8,4)}else fc.drawImage(petal,-p.s/2,-p.s*.7,p.s,p.s*1.4);fc.restore()}
  if(P.length)requestAnimationFrame(loop);else run=0}
 const kick=()=>{if(!run){run=1;requestAnimationFrame(loop)}};
-function petals(){for(let i=0;i<40;i++)P.push({x:Math.random()*innerWidth,y:-20-Math.random()*innerHeight*.6,vx:Math.random()-.5,vy:1+Math.random()*1.2,g:0,a:Math.random()*6,va:(Math.random()-.5)*.08,s:10+Math.random()*8,t:700});kick()}
+function petals(n=40){for(let i=0;i<n;i++)P.push({x:Math.random()*innerWidth,y:-20-Math.random()*innerHeight*.6,vx:Math.random()-.5,vy:1+Math.random()*1.2,g:0,a:Math.random()*6,va:(Math.random()-.5)*.08,s:10+Math.random()*8,t:700});kick()}
 function burst(x,y){const cs=['#c9a45c','#6e1f2f','#e87d95','#f6e3b0','#fff'];for(let i=0;i<70;i++){const a=Math.random()*6.283,v=3+Math.random()*7,q={x,y,vx:Math.cos(a)*v*.8,vy:Math.sin(a)*v-4,g:.18,a:0,va:(Math.random()-.5)*.3,s:12,t:140};if(i%3)q.c=cs[i%5];P.push(q)}kick()}
 /* carousel */
 function carousel(root,n,onc){const st=root.querySelector('.stage'),cs=[...st.children],dots=root.querySelector('.dots'),prev=cs.map(()=>0);let cur=0,x0=null;
@@ -315,11 +319,19 @@ function spring(){const st=$$('#st div'),A=st.map(()=>({a:0,v:0}));let last=scro
 const io=new IntersectionObserver(es=>es.forEach(e=>{e.target.classList.toggle('run',e.isIntersecting);if(e.isIntersecting&&e.target.id!='p1')e.target.querySelectorAll('.bi').forEach((b,i)=>setTimeout(()=>b.classList.add('in'),i*140))}),{threshold:.2});
 const type=(el,txt,ms)=>new Promise(res=>{el.textContent=txt;const dur=[...txt].length*ms,t0=performance.now();(function f(tt){const k=Math.min(1,(tt-t0)/dur),x=-14+k*114;el.style.webkitMaskImage=el.style.maskImage=`linear-gradient(90deg,#000 ${x}%,transparent ${x+14}%)`;if(k<1)requestAnimationFrame(f);else{el.style.webkitMaskImage=el.style.maskImage='none';res()}})(t0)});
 async function hero(){const h=$$('.hb'),show=i=>h[i].classList.add('in');show(0);await sleep(500);show(1);await sleep(700);await type($('#gn'),'जितेंद्र साहू',95);show(2);await sleep(500);show(3);await sleep(500);await type($('#bn'),'रिंकी साहू',110);show(4);await sleep(600);show(5);await sleep(600);show(6)}
-function startPage(){document.documentElement.classList.remove('lock');$('#rl').classList.remove('off');$$('.sec').forEach(s=>io.observe(s));spring();hero()}
+function startPage(){new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();setTimeout(()=>window.unroll&&unroll(),450)}},{threshold:.5}).observe($('#pw'));document.documentElement.classList.remove('lock');$('#rl').classList.remove('off');$$('.sec').forEach(s=>io.observe(s));spring();hero();guide()}
+function guide(){const secs=$$('main .sec'),nx=$('#nx'),bar=$('#pb'),sp=$('#nx span'),L=['शुभ तिथि देखिए','कार्यक्रम देखिए','हमारी कहानी देखिए','भव्य समारोह देखिए','स्थान देखिए','अंतिम संदेश देखिए'];let mx=0,tk=0,cur=0;
+ nx.style.display='flex';
+ const upd=()=>{tk=0;const h=document.documentElement.scrollHeight-innerHeight;bar.style.transform=`scaleX(${h>0?Math.min(1,scrollY/h):0})`;let i=0;secs.forEach((e,k)=>{if(e.getBoundingClientRect().top<innerHeight*.5)i=k});
+  if(i>mx){mx=i;petals(14)}
+  cur=i;if(i>=secs.length-1)nx.classList.add('hd');else{nx.classList.remove('hd');sp.textContent=L[i]}};
+ addEventListener('scroll',()=>{if(!tk){tk=1;requestAnimationFrame(upd)}},{passive:true});
+ nx.onclick=()=>{const e=secs[cur+1];e&&e.scrollIntoView({behavior:'smooth'})};upd()}
 /* pull scroll */
-{const PHt=370,paper=$('#paper'),roll=$('#roll'),tas=$('#tas');let p=0,done=0,y0=null,p0=0,mv=0;
+{const PHt=505,paper=$('#paper'),roll=$('#roll'),tas=$('#tas');let p=0,done=0,y0=null,p0=0,mv=0;
  const setP=v=>{p=Math.max(0,Math.min(1,v));paper.style.clipPath=`inset(0 0 ${(1-p)*100}% 0)`;roll.style.transform=`translate3d(0,${p*PHt}px,0)`};
  function anim(to){const f=p,t0=performance.now(),dur=900*Math.abs(to-f)+200;(function s(t){const k=Math.min(1,(t-t0)/dur);setP(f+(to-f)*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(s);else if(to==1&&!done){done=1;const r=paper.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height*.5);petals()}})(t0)}
+ window.unroll=()=>{if(!done)anim(1)};
  tas.addEventListener('pointerdown',e=>{y0=e.clientY;p0=p;mv=0;tas.setPointerCapture(e.pointerId);$('#fing').style.display='none'});
  tas.addEventListener('pointermove',e=>{if(y0==null||done)return;const dy=e.clientY-y0;mv=Math.max(mv,Math.abs(dy));setP(p0+dy/(PHt*.7))});
  tas.addEventListener('pointerup',()=>{if(y0==null)return;y0=null;if(!done)anim(mv<8||p>.4?1:0)});
@@ -332,13 +344,11 @@ function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');setT
 $('#cp').onclick=async()=>{try{await navigator.clipboard.writeText(ADDR)}catch(e){const a=document.createElement('textarea');a.value=ADDR;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(_){}a.remove()}toast('पता कॉपी हो गया')};
 /* intro */
 let aud=null;
-let want=0,manual=0;
+let want=0,manual=0,un=0;
 if(MUSIC){try{const bs=atob(MUSIC.split(',')[1]),u=new Uint8Array(bs.length);for(let i=0;i<bs.length;i++)u[i]=bs.charCodeAt(i);aud=new Audio(URL.createObjectURL(new Blob([u],{type:'audio/mpeg'})))}catch(e){aud=new Audio(MUSIC)}aud.loop=true;aud.preload='auto';aud.setAttribute('playsinline','');aud.load();
- aud.addEventListener('play',()=>$('#mus').textContent='🔊');aud.addEventListener('pause',()=>$('#mus').textContent='🔇');
- ['touchend','pointerup','click'].forEach(ev=>addEventListener(ev,()=>{if(want&&!manual&&aud.paused){const q=aud.play();q&&q.catch&&q.catch(()=>{})}},{passive:true}))}
-function startMusic(){if(!aud)return;want=1;const m=$('#mus');m.style.display='block';m.onclick=()=>{if(aud.paused){manual=0;aud.volume=.7;const q=aud.play();q&&q.catch&&q.catch(()=>{})}else{manual=1;aud.pause()}};
- try{aud.volume=0}catch(e){}const q=aud.play();q&&q.catch&&q.catch(()=>{});let v=0;const f=setInterval(()=>{v=Math.min(.7,v+.05);try{aud.volume=v}catch(e){}if(v>=.7)clearInterval(f)},150);
- setTimeout(()=>{if(aud.paused&&!manual){toast('संगीत के लिए 🔇 दबाएँ');m.classList.add('pu')}},1800)}
+  ['touchend','pointerup','click'].forEach(ev=>addEventListener(ev,()=>{if(want&&!manual&&aud.paused){const q=aud.play();q&&q.catch&&q.catch(()=>{})}else if(!want&&!un){un=1;aud.muted=true;const q=aud.play();q&&q.then&&q.then(()=>{if(!want){aud.pause();aud.currentTime=0}aud.muted=false}).catch(()=>{aud.muted=false;un=0})}},{passive:true}))}
+function startMusic(){if(!aud)return;want=1;try{aud.volume=1}catch(e){}const q=aud.play();q&&q.catch&&q.catch(()=>{});
+ setTimeout(()=>{if(aud.paused)toast('संगीत के लिए स्क्रीन पर एक बार टैप करें')},1500)}
 const ready=src=>new Promise(r=>{if(src.complete&&src.naturalWidth)return r();src.addEventListener('load',r,{once:true});src.addEventListener('error',r,{once:true})});
 (async()=>{build();
  const fonts=Promise.race([Promise.all(['400 20px "Tiro Devanagari Hindi"','italic 400 20px "Tiro Devanagari Hindi"','400 14px Hind','500 14px Hind'].map(f=>document.fonts.load(f))),sleep(2000)]);
@@ -346,13 +356,13 @@ const ready=src=>new Promise(r=>{if(src.complete&&src.naturalWidth)return r();sr
  await Promise.all([fonts,au,...imgs.map(ready)]);
  await sleep(100);$('#ld').style.display='none';$('#tap').style.display='block';
  const bk=$('#bk');let opened=0;
- bk.addEventListener('click',async()=>{if(opened)return;opened=1;$('#tap').style.display='none';
+ const openBook=async()=>{if(opened)return;opened=1;$('#tap').style.display='none';
   $('#cv').classList.add('open');bk.classList.add('open');$('#zm').classList.add('o1');
   startMusic();
-  await sleep(900);petals();await sleep(700);
+  await sleep(400);petals();await sleep(100);
   $$('.ir').forEach(r=>{if(r.dataset.f=='1'){r.style.transform='scale(2.6)';r.style.opacity=0}});
-  $('#zm').classList.add('o2');await sleep(1100);
-  $('#intro').classList.add('gone');startPage();await sleep(900);$('#intro').remove()});
+  $('#zm').classList.add('o2');await sleep(650);
+  $('#intro').classList.add('gone');startPage();await sleep(450);$('#intro').remove()};bk.addEventListener('click',openBook);$('#intro').addEventListener('click',openBook);setTimeout(openBook,300);
  addEventListener('pointermove',e=>{const dx=e.clientX/innerWidth-.5,dy=e.clientY/innerHeight-.5;$$('.ir').forEach(r=>{if(!r.dataset.f)return;if(!opened)r.style.translate=`${dx*(r.dataset.f=='1'?-30:14)}px ${dy*(r.dataset.f=='1'?-30:14)}px`})},{passive:true});
 })();
 </script></body></html>
